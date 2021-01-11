@@ -1,0 +1,156 @@
+Rules:
+1) no mathematical computation can be done into a string even tho it is a number
+2) u can pass strings into integer from int.Parse(string);
+3) u can pass integers into strings from int.ToString();
+
+		[Code 							|Result				]
+multiplication:
+
+richTextBox2.Text = "X";						[text	{ } ->	text 	  {X}   ]
+if(richTextBox2.Text == "X") 						[yes/true                       ]
+            { //then
+                string xy = richTextBox1.Text; 				[text   {10}-> 	string	  {10}	]
+                string yx = richTextBox3.Text; 				[text   {5} ->  string	  {5}	]
+                int x = int.Parse(xy); 					[string {10}-> 	int	  {10}	]
+                int y = int.Parse(yx); 					[string {5} -> 	int	  {5}	]
+                int v = x*y; 						[int    {50}==  int{10} X int{5}]
+                string answer = v.ToString(); 				[int    {10}->  string	  {10}	]
+                richTextBox4.Text = answer; 				[Text       ==  string    {10}	]
+            } //then
+
+===================================================================================================================================================================================
+division example 1:
+
+ richTextBox2.Text = ":";						[text	   { } 	->text	   {:}	]
+ if (richTextBox2.Text == ":") 						[yes/true			]
+            { //then							[then				]
+                string xy = richTextBox1.Text; 				[text     {10}	->string   {10}	]
+                string yx = richTextBox3.Text; 				[text     {5} 	->string   {5}	]
+                int x = int.Parse(xy); 					[string   {10}	->int      {10}	]
+                int y = int.Parse(yx); 					[string   {5}	->int      {5}	]
+                int v = x / y; 						[int      {2}   ==int{10}/int{5}]	
+                string answer = v.ToString(); 				[int      {2}	->string   {2}	]
+                richTextBox4.Text = answer; 				[Text     { }   ==string   {2}	]
+                string ver1 = richTextBox1.Text; 			[	  {10}	->string   {10}	]
+                string ver2 = richTextBox3.Text; 			[	  {5}	->string   {5}	]
+                int v1 = int.Parse(ver1); 				[string   {10}	->int      {10}	]
+                int v2 = int.Parse(ver2); 				[string   {5}	->int	   {5}	]
+                if (v1 < v2) 						[no/false			]
+                { //then						[then				]
+                    richTextBox1.Text = richTextBox1.Text + "0"; 	[no				]
+                    string zb = richTextBox1.Text; 			[no				]
+                    string bz = richTextBox3.Text; 			[no				]
+                    int z = int.Parse(zb); 				[no				]
+                    int b = int.Parse(bz); 				[no				]
+                    int r = (z / b); 					[no				]
+                    string result = r.ToString(); 			[no				]
+                    richTextBox4.Text = "0." + result; 			[no				]
+                    richTextBox1.Text = ""; 				[no				]
+                    richTextBox2.Text = ""; 				[no				]
+                    richTextBox3.Text = ""; 				[no				]
+                }
+
+            }
+===================================================================================================================================================================================
+division example 2:
+
+ richTextBox2.Text = ":";						[text	   { } 	->text	   {:}	]
+ if (richTextBox2.Text == ":") 						[yes/true			]
+            { //then							[then				]
+                string xy = richTextBox1.Text; 				[text      {5}	->string   {5}	]
+                string yx = richTextBox3.Text; 				[text	   {10}	->string   {10}	]
+                int x = int.Parse(xy); 					[string	   {5}	->int      {5}	]
+                int y = int.Parse(yx); 					[string	   {10}	->int      {10}	]
+                int v = x / y; 						[int	   {0}  ==int{5}/int{10}]	
+                string answer = v.ToString(); 				[int	   {0}	->string   {0}	]
+                richTextBox4.Text = answer; 				[Text      	==string   {0}	]
+                string ver1 = richTextBox1.Text; 			[          {5}	->string   {5}	]
+                string ver2 = richTextBox3.Text; 			[	   {10}	->string   {10}	]
+                int v1 = int.Parse(ver1); 				[string	   {5}	->int      {5}	]
+                int v2 = int.Parse(ver2); 				[string    {10}	->int	   {10}	]
+                if (v1 < v2) 						[yes/true			]
+                { 							[then				]
+                    richTextBox1.Text = richTextBox1.Text + "0"; 	[text      {5}	->	   {50}	]
+                    string zb = richTextBox1.Text; 			[text	   {50}	->string   {50}	]
+                    string bz = richTextBox3.Text; 			[text      {10}	->string   {10}	]
+                    int z = int.Parse(zb); 				[string    {50}	->int 	   {50}	]
+                    int b = int.Parse(bz); 				[string    {10}	->int	   {10}	]
+                    int r = (z / b); 					[int       {5}	==int	   {50} ]		
+                    string result = r.ToString(); 			[int	   {5}	->string   {5}	]
+                    richTextBox4.Text = "0." + result; 			[text	   {0.} =+string   {5}  ]
+                    richTextBox1.Text = "";				[text 	   {5}	->text	   { }	]	
+                    richTextBox2.Text = ""; 				[text	   {10}	->text	   { }	]
+                    richTextBox3.Text = ""; 				[text      {:}	->text	   { }	]
+                }
+
+            }
+===================================================================================================================================================================================
+addition example:
+
+richTextBox2.Text = "+";						[text	   { }	->text	    {+}	]
+if (richTextBox2.Text == "+") 						[yes/true  			]
+            { //then							[then				]
+                string xy = richTextBox1.Text;				[text	   {5}	->string    {5}	]
+                string yx = richTextBox3.Text;     			[text	   {2} 	->string    {2}	]
+                int x = int.Parse(xy); 					[string	   {5}  ->int	    {5}	]
+                int y = int.Parse(yx);				  	[string    {2}	->int	    {2}	]
+                int v = x + y; 						[int	   {7}  ==int{5}+int{2}	]
+                string answer = v.ToString();				[int	   {7} 	->string    {7}	]
+                richTextBox4.Text = answer;				[text	   { }  ->string    {7}	]
+	    }
+===================================================================================================================================================================================
+subtraction example:
+
+richTextBox2.Text = "-";						[text	   { } 	->text	    {-}	]
+if (richTextBox2.Text == "+") 						[yes/true  			]
+            { //then							[then				]
+                string xy = richTextBox1.Text;				[text	   {5}	->string    {5}	]
+                string yx = richTextBox3.Text;     			[text	   {2} 	->string    {2}	]
+                int x = int.Parse(xy); 					[string	   {5}  ->int	    {5}	]
+                int y = int.Parse(yx);				  	[string    {2}	->int	    {2}	]
+                int v = x - y; 						[int	   {3}  ==int{5}-int{2}	]
+                string answer = v.ToString();				[int	   {3} 	->string    {3}	]
+                richTextBox4.Text = answer;				[text	   { }  ->string    {3}	]
+	    }
+==================================================================================================================================================================================
+percentage example:
+
+richTextBox2.Text = "%";						[text	   { }	->text	    {%} ]
+if (richTextBox2.Text == "%") 						[yes/true			]
+            {								[then				]
+                richTextBox1.Text = richTextBox1.Text + "0"; 		[text      {5}	=+text	    {0}	]
+                string xy = richTextBox1.Text; 				[text	   {50} ->string    {50}]
+                string yx = richTextBox3.Text; 				[text	   {10} ->string    {10}]
+                int x = int.Parse(xy); 					[string	   {50}	->int 	    {50}]
+                int y = int.Parse(yx); 					[string    {10}	->int	    {10}]
+                int v = (x / y) * 10; 					[int{50}/int{10}X{10}->int  {50}]
+                string answer = v.ToString(); 				[int	   {50} ->string    {50}]
+                richTextBox4.Text = answer + "%"; 			[text	   {&&%}->string    {50}]
+                richTextBox1.Text = ""; 				[text	   {5}  ->text      {  }]
+                richTextBox2.Text = ""; 				[text	   {%} 	->text      {  }]
+                richTextBox3.Text = ""; 				[text      {10}	->text      {  }]
+            }
+=================================================================================================================================================================================
+squared example:
+	{
+            string xy = richTextBox1.Text; 				[text      {5}	->string    {5}	]
+            int x = int.Parse(xy); 					[string	   {5}  ->int	    {5}	]
+            int v = x * x; 						[int	   {25} ==int{5}*int{5}	]
+            string answer = v.ToString(); 				[int	   {25}	->string    {25}]
+            richTextBox4.Text = answer; 				[text	   {  } ->string    {25}]
+        }
+=================================================================================================================================================================================
+cubes example:
+	{
+            string xy = richTextBox1.Text; 				[text      {5}	->string    {5}	 ]
+            int x = int.Parse(xy); 					[string	   {5}  ->int	    {5}	 ]
+            int v = x * x * x; 						[int	   {25} ==int{5}*int{5}*int{5}]
+            string answer = v.ToString(); 				[int	   {125}->string    {125}]
+            richTextBox4.Text = answer; 				[text	   {  } ->string    {125}]
+        }
+=================================================================================================================================================================================
+clear example:
+            richTextBox1.Text = ""; 					[text	   {1}	->text	    { }	]
+            richTextBox2.Text = ""; 					[text 	   {+}	->text      { }	]
+            richTextBox3.Text = ""; 					[text 	   {1}	->text	    { }	]
+            richTextBox4.Text = ""; 					[text      {2}	->text	    { }	]
