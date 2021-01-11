@@ -3,6 +3,17 @@ Rules:
 2) u can pass strings into integer from int.Parse(string);
 3) u can pass integers into strings from int.ToString();
 
+
+Symbol meaning:
+*  = multiply
+:  = Divide
++  = Add
+-  = Subtract
+== = equals to
+-> = changed/transformed
+=+ = adds behinds
+&& = Variable
+
 		[Code 							|Result				]
 multiplication:
 
